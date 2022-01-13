@@ -20,8 +20,10 @@ public class ScoreService {
 
 	@Autowired
 	private MovieRepository movieRepository;
+	
 	@Autowired
 	private ScoreRepository scoreRepository;
+	
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -46,10 +48,10 @@ public class ScoreService {
 		
 		double sum = 0.0;
 		for(Score e : movie.getScores()) {
-			sum += e.getValue();
+			sum = sum + e.getValue();
 		}
 		
-		double avg = sum/movie.getScores().size();
+		double avg = sum / movie.getScores().size();
 		
 		movie.setScore(avg);
 		movie.setCount(movie.getScores().size());

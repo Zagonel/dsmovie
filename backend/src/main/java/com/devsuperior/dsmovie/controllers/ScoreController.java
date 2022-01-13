@@ -13,7 +13,7 @@ import com.devsuperior.dsmovie.dto.ScoreDTO;
 import com.devsuperior.dsmovie.services.ScoreService;
 
 @RestController
-@RequestMapping(value = "/scores")
+@RequestMapping(value = "/scores") 
 public class ScoreController {
 	
 	@Autowired
@@ -21,7 +21,8 @@ public class ScoreController {
 	
 	@PutMapping(value = "/{id}")
 	public MovieDTO saveScore(@RequestBody ScoreDTO dto){
-		return scoreService.saveScore(dto);		
+		MovieDTO movieDTO =  scoreService.saveScore(dto);	
+		return movieDTO;
 	}	
 }
 
